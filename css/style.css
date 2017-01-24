@@ -12,6 +12,45 @@ input {
    margin-right: 5px;
 }
 
+#game-btn-group {
+   text-align: center;
+}
+
+#green-btn {
+   background-color: green;
+   opacity: 0.5;
+}
+
+#green-btn:active {
+   opacity: 1;
+}
+
+#red-btn {
+   background-color: red;
+   opacity: 0.5;
+}
+
+#red-btn:active {
+   opacity: 1;
+}
+
+#yellow-btn {
+   background-color: yellow;
+   opacity: 0.5;
+}
+
+#yellow-btn:active {
+   opacity: 1;
+}
+
+#blue-btn {
+   background-color: blue;
+   opacity: 0.5;
+}
+
+#blue-btn:active {
+   opacity: 1;
+}
 
 #footer {
    position:fixed;
