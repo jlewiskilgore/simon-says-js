@@ -1,0 +1,32 @@
+body {
+   background-color: white;
+   color: black;
+}
+
+input {
+   height: 100px;
+   width: 100px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:80px;
+   width:100%;
+   background: white;
+   text-align: center;
+   color: black;
+   padding: 15px 5px 15px 10px;
+}
+
+#footer a {
+	color: black;
+	font-size: 32px;
+	padding: 20px;
+}   
