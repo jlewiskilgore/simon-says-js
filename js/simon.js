@@ -32,6 +32,7 @@ function nextTurn() {
 
 function pressColorButton(color) {
 	var audioFile = "sounds/";
+	var buttonId = '#'+color+'-btn'; // Use for
 	switch(color) {
 		case 'green':
 			audioFile += 'simonSound1.mp3';
@@ -46,8 +47,13 @@ function pressColorButton(color) {
 			audioFile += 'simonSound4.mp3';
 			break;
 	}
+	// Turn button "on" and play the associated sound file
+	$(buttonId).css({"opacity": "1"});
 	var audio = new Audio(audioFile);
 	audio.play();
+
+	// Hold button "on" for 0.5 seconds and reset opacity to turn "off"
+	setTimeout(function(){ $(buttonId).css({"opacity": "0.5"}); }, 500);
 }
 
 /* 
