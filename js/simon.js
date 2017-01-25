@@ -5,14 +5,28 @@ console.log(currGameSequence);
 
 function startGame() {
 	currGameSequence = []; // Clear sequence for the new game
-	numRight = 0;
+	numRight = 5;
 	currGameSequence = generateRandomSequence(20);
 
-	nextTurn();
+	// Play the initial sequence for the player starting at 0
+	playSequence(0, numRight);
 }
 
-function nextTurn() {
-	var currentButton = currGameSequence[numRight];
+// Play sequence from a starting currentButton
+// for a specific number of turns (numTurns)
+function playSequence(currentButton, numTurns) {
+	if(currentButton >= numTurns) {
+		return;
+	}
+	// Loop through each element in the sequence with a 0.5 second delay
+	setTimeout(function() {
+		nextTurn(currentButton);
+		playSequence(++currentButton, numTurns);
+	}, 500);
+}
+
+function nextTurn(turnNum) {
+	var currentButton = currGameSequence[turnNum];
 
 	switch(currentButton) {
 		case 0:
