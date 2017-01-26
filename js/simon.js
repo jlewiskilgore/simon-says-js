@@ -1,4 +1,5 @@
 var currGameSequence;
+var isStrictMode;
 var numRight;
 var userGuess;
 startGame();
@@ -6,6 +7,7 @@ console.log(currGameSequence);
 
 function startGame() {
 	currGameSequence = []; // Clear sequence for the new game
+	isStrictMode = 1; // Toggle Strict mode option
 	numRight = 0;
 	userGuess = 0;
 	currGameSequence = generateRandomSequence(20);
@@ -82,8 +84,13 @@ function getUserChoice(buttonNum, buttonColor) {
 		console.log("wrong...");
 		userGuess = 0;
 		// If regular mode
-		playSequence(0, numRight+1); // Replay same sequence
-		// If string mode, game is over
+		if(!isStrictMode){
+			playSequence(0, numRight+1); // Replay same sequence
+		}
+		// If strict mode, game is over
+		else if(isStrictMode) {
+			startGame(); // Restart Game;
+		}
 	}
 
 	// Check what to do with the guess result
