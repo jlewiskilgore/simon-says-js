@@ -66,10 +66,17 @@ function getUserChoice(buttonNum, buttonColor) {
 	pressColorButton(buttonColor);
 
 	// Check if this button matches, mark as corrent guess
-
+	if(buttonNum == currGameSequence[numRight]) {
+		console.log("right!");
+		numRight++;
+	}
 	// Else, user is wrong
+	else {
+		console.log("wrong...");
 		// If regular mode, replay current sequence
 		// If string mode, game is over
+	}
+
 }
 
 function pressColorButton(color) {
