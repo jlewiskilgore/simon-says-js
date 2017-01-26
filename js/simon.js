@@ -1,5 +1,6 @@
 var currGameSequence;
 var numRight;
+var userGuess;
 startGame();
 console.log(currGameSequence);
 
@@ -20,11 +21,11 @@ function playSequence(currentButton, numTurns) {
 		enableButtons();
 		return;
 	}
-	// Loop through each element in the sequence with a 0.5 second delay
+	// Loop through each element in the sequence with a 0.8 second delay
 	setTimeout(function() {
 		nextTurn(currentButton);
 		playSequence(++currentButton, numTurns);
-	}, 500);
+	}, 800);
 }
 
 function disableButtons() {
@@ -58,6 +59,14 @@ function nextTurn(turnNum) {
 			pressColorButton('blue');
 			break;
 	}
+}
+
+function getUserChoice(buttonNum) {
+	// Check if this button matches, mark as corrent guess
+
+	// Else, user is wrong
+		// If regular mode, replay current sequence
+		// If string mode, game is over
 }
 
 function pressColorButton(color) {
