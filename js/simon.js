@@ -61,7 +61,10 @@ function nextTurn(turnNum) {
 	}
 }
 
-function getUserChoice(buttonNum) {
+function getUserChoice(buttonNum, buttonColor) {
+	// Light up and play user's button choice
+	pressColorButton(buttonColor);
+
 	// Check if this button matches, mark as corrent guess
 
 	// Else, user is wrong
