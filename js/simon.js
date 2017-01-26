@@ -7,10 +7,11 @@ console.log(currGameSequence);
 function startGame() {
 	currGameSequence = []; // Clear sequence for the new game
 	numRight = 0;
+	userGuess = 0;
 	currGameSequence = generateRandomSequence(20);
 
 	// Play the initial sequence for the player starting at 0
-	playSequence(0, 10);
+	playSequence(0, 1);
 }
 
 // Play sequence from a starting currentButton
@@ -66,16 +67,27 @@ function getUserChoice(buttonNum, buttonColor) {
 	pressColorButton(buttonColor);
 
 	// Check if this button matches, mark as corrent guess
-	if(buttonNum == currGameSequence[numRight]) {
+	if(buttonNum == currGameSequence[userGuess]) {
 		console.log("right!");
-		numRight++;
+		userGuess++;
+		if(userGuess == numRight+1) {
+			console.log("All Right!! Get next sequence!");
+			numRight++;
+			userGuess = 0; // Reset guess count for next sequence
+			playSequence(0, numRight+1); // Play new sequence
+		}
 	}
 	// Else, user is wrong
 	else {
 		console.log("wrong...");
-		// If regular mode, replay current sequence
+		userGuess = 0;
+		// If regular mode
+		playSequence(0, numRight+1); // Replay same sequence
 		// If string mode, game is over
 	}
+
+	// Check what to do with the guess result
+	
 
 }
 
