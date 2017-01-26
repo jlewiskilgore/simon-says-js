@@ -5,17 +5,19 @@ console.log(currGameSequence);
 
 function startGame() {
 	currGameSequence = []; // Clear sequence for the new game
-	numRight = 5;
+	numRight = 0;
 	currGameSequence = generateRandomSequence(20);
 
 	// Play the initial sequence for the player starting at 0
-	playSequence(0, numRight);
+	playSequence(0, 10);
 }
 
 // Play sequence from a starting currentButton
 // for a specific number of turns (numTurns)
 function playSequence(currentButton, numTurns) {
+	disableButtons();
 	if(currentButton >= numTurns) {
+		enableButtons();
 		return;
 	}
 	// Loop through each element in the sequence with a 0.5 second delay
@@ -23,6 +25,20 @@ function playSequence(currentButton, numTurns) {
 		nextTurn(currentButton);
 		playSequence(++currentButton, numTurns);
 	}, 500);
+}
+
+function disableButtons() {
+	$('#green-btn').prop('disabled', true);
+	$('#red-btn').prop('disabled', true);
+	$('#yellow-btn').prop('disabled', true);
+	$('#blue-btn').prop('disabled', true);
+}
+
+function enableButtons() {
+	$('#green-btn').prop('disabled', false);
+	$('#red-btn').prop('disabled', false);
+	$('#yellow-btn').prop('disabled', false);
+	$('#blue-btn').prop('disabled', false);
 }
 
 function nextTurn(turnNum) {
