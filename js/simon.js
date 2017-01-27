@@ -3,7 +3,6 @@ var isStrictMode;
 var numRight;
 var userGuess;
 startGame();
-console.log(currGameSequence);
 
 function startGame() {
 	currGameSequence = []; // Clear sequence for the new game
@@ -11,6 +10,8 @@ function startGame() {
 	numRight = 0;
 	userGuess = 0;
 	currGameSequence = generateRandomSequence(20);
+
+	console.log(currGameSequence); // for DEBUG
 
 	// Play the initial sequence for the player starting at 0
 	playSequence(0, 1);
