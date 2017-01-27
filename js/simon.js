@@ -74,6 +74,8 @@ function nextTurn(turnNum) {
 }
 
 function getUserChoice(buttonNum, buttonColor) {
+	var gameStatus = $('#game-status-display');
+	gameStatus.val("");
 	// Light up and play user's button choice
 	pressColorButton(buttonColor);
 
@@ -83,6 +85,7 @@ function getUserChoice(buttonNum, buttonColor) {
 		userGuess++;
 		if(userGuess == numRight+1) {
 			console.log("All Right!! Get next sequence!");
+			gameStatus.val("CORRECT!");
 			numRight++;
 			userGuess = 0; // Reset guess count for next sequence
 			playSequence(0, numRight+1); // Play new sequence
@@ -94,10 +97,12 @@ function getUserChoice(buttonNum, buttonColor) {
 		userGuess = 0;
 		// If regular mode
 		if(!isStrictMode){
+			gameStatus.val("WRONG! Try again...");
 			playSequence(0, numRight+1); // Replay same sequence
 		}
 		// If strict mode, game is over
 		else if(isStrictMode) {
+			gameStatus.val("WRONG! GAME OVER!!");
 			startGame(); // Restart Game;
 		}
 	}
