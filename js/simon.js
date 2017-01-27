@@ -103,13 +103,9 @@ function getUserChoice(buttonNum, buttonColor) {
 		// If strict mode, game is over
 		else if(isStrictMode) {
 			gameStatus.val("WRONG! GAME OVER!!");
-			startGame(); // Restart Game;
+			gameOver(); // Restart Game;
 		}
 	}
-
-	// Check what to do with the guess result
-	
-
 }
 
 function pressColorButton(color) {
@@ -155,4 +151,15 @@ function generateRandomSequence(numElements) {
 	}
 
 	return sequence;
+}
+
+function resetGame() {
+	startGame();
+}
+
+function gameOver() {
+	// Show 'Game Over' Screen
+	//alert('Game Over');
+	console.log(sequenceTimers.length);
+	// Ask user to play again
 }

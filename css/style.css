@@ -19,9 +19,9 @@ input {
 #game-status-display {
    height: 50px;
    width: 210px;
-   disable: true;
    margin-top: 10px;
    margin-bottom: 10px;
+   text-align: center;
 }
 
 #green-btn {
