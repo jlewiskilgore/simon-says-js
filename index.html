@@ -19,6 +19,9 @@
    <h1 align="center">Simon Says</h1>
    <br>
    <div id="game-btn-group">
+      <div id="game-status">
+         <input readonly id="game-status-display" type="text" onclick="toggleStrictMode()">
+      </div>
       <div class="row">
          <input id="green-btn" type="submit" value="green" onclick="getUserChoice(0, 'green')" />
          <input id="red-btn" type="submit" value="red" onclick="getUserChoice(1, 'red')" />
