@@ -1,12 +1,11 @@
 var currGameSequence;
-var isStrictMode;
+var isStrictMode = 0; // Strict Starts Off
 var numRight;
 var userGuess;
 startGame();
 
 function startGame() {
 	currGameSequence = []; // Clear sequence for the new game
-	isStrictMode = 1; // Toggle Strict mode option
 	numRight = 0;
 	userGuess = 0;
 	currGameSequence = generateRandomSequence(20);
@@ -15,6 +14,15 @@ function startGame() {
 
 	// Play the initial sequence for the player starting at 0
 	playSequence(0, 1);
+}
+
+function toggleStrictMode() {
+	if($('#strict-mode-btn').is(':checked')) {
+		isStrictMode = 1;
+	}
+	else {
+		isStrictMode = 0;
+	}
 }
 
 // Play sequence from a starting currentButton
