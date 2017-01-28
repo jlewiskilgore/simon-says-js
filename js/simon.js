@@ -7,6 +7,7 @@ startGame();
 
 function startGame() {
 	$('#game-status-display').val("");
+	$('#game-score-display').val("CURRENT SCORE: 00");
 	enableButtons();
 	currGameSequence = []; // Clear sequence for the new game
 	numRight = 0;
@@ -91,6 +92,13 @@ function getUserChoice(buttonNum, buttonColor) {
 		else if(userGuess == numRight+1) {
 			gameStatus.val("CORRECT!");
 			numRight++;
+			// Update Player's Score
+			if(numRight < 10) {
+				$('#game-score-display').val("CURRENT SCORE: 0"+numRight);
+			}
+			else {
+				$('#game-score-display').val("CURRENT SCORE: "+numRight);
+			}
 			userGuess = 0; // Reset guess count for next sequence
 			playSequence(0, numRight+1); // Play new sequence
 		}

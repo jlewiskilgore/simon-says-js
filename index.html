@@ -20,7 +20,7 @@
    <br>
    <div id="game-btn-group">
       <div id="game-status">
-         <input readonly id="game-status-display" type="text" onclick="toggleStrictMode()">
+         <input readonly id="game-status-display" type="text">
       </div>
       <div class="row">
          <input id="green-btn" type="submit" value="green" onclick="getUserChoice(0, 'green')" />
@@ -30,6 +30,9 @@
          <input id="yellow-btn" type="submit" value="yellow" onclick="getUserChoice(2, 'yellow')" />
          <input id="blue-btn" type="submit" value="blue" onclick="getUserChoice(3, 'blue')" />
       </div>
+
+      <input readonly id="game-score-display" type="text" value="CURRENT SCORE: 00">
+      
       <div class="row">
          <label>Strict Mode:
          <input id="strict-mode-btn" type="checkbox" onclick="toggleStrictMode()">

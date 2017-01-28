@@ -20,12 +20,12 @@ input {
    text-align: center;
 }
 
-#game-status-display {
+#game-score-display, #game-status-display {
    font-family: fantasy;
    font-size: 18pt;
    height: 50px;
    width: 400px;
-   margin-top: 50px;
+   margin-top: 10px;
    margin-bottom: 10px;
    text-align: center;
    border: none;
