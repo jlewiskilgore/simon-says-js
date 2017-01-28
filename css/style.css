@@ -60,18 +60,15 @@ input {
    opacity: 1;
 }
 
-#strict-mode {
-   border-style: solid;
-   width: 150px;
-   text-align: center;
-   margin-top: 25px;
-   margin-left: 40%;
-   margin-right: 40%;
+#strict-mode-btn {
+   height: 20px;
+   width: 20px;
+   vertical-align: bottom;
 }
 
-#strict-mode-btn {
+#reset-btn {
    height: 50px;
-   width: 50px;
+   width: 150px;
 }
 
 #footer {
