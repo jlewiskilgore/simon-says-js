@@ -1,4 +1,5 @@
 var currGameSequence;
+var gameTimers;
 var gameLength = 20;
 var isStrictMode = 0; // Strict Starts Off
 var numRight;
@@ -10,6 +11,7 @@ function startGame() {
 	$('#game-score-display').val("CURRENT SCORE: 00");
 	enableButtons();
 	currGameSequence = []; // Clear sequence for the new game
+	gameTimers = [];
 	numRight = 0;
 	userGuess = 0;
 	currGameSequence = generateRandomSequence(gameLength);
@@ -37,10 +39,11 @@ function playSequence(currentButton, numTurns) {
 		return;
 	}
 	// Loop through each element in the sequence with a 0.8 second delay
-	setTimeout(function() {
+	var timer = setTimeout(function() {
 		nextTurn(currentButton);
 		playSequence(++currentButton, numTurns);
 	}, 800);
+	gameTimers.push(timer);
 }
 
 function disableButtons() {
@@ -165,6 +168,10 @@ function generateRandomSequence(numElements) {
 }
 
 function resetGame() {
+	// Clear unused Timer objects
+	for(var i = 0; i < gameTimers.length; i++) {
+		clearTimeout(gameTimers[i]);
+	}
 	startGame();
 }
 
