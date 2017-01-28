@@ -1,18 +1,17 @@
 var currGameSequence;
-var gameLength = 5;
+var gameLength = 20;
 var isStrictMode = 0; // Strict Starts Off
 var numRight;
 var userGuess;
 startGame();
 
 function startGame() {
+	$('#game-status-display').val("");
 	enableButtons();
 	currGameSequence = []; // Clear sequence for the new game
 	numRight = 0;
 	userGuess = 0;
 	currGameSequence = generateRandomSequence(gameLength);
-
-	console.log(currGameSequence); // for DEBUG
 
 	// Play the initial sequence for the player starting at 0
 	playSequence(0, 1);
@@ -84,16 +83,12 @@ function getUserChoice(buttonNum, buttonColor) {
 
 	// Check if this button matches, mark as corrent guess
 	if(buttonNum == currGameSequence[userGuess]) {
-		console.log("right!");
 		userGuess++;
 		if(userGuess == gameLength) {
-			$('#reset-btn').val("New Game?");
-			console.log("YOU WIN!!!!!");
 			gameStatus.val("Congratulations! YOU WIN!!!");
-			disableButtons();
+			gameOver();
 		}
 		else if(userGuess == numRight+1) {
-			console.log("All Right!! Get next sequence!");
 			gameStatus.val("CORRECT!");
 			numRight++;
 			userGuess = 0; // Reset guess count for next sequence
@@ -102,7 +97,6 @@ function getUserChoice(buttonNum, buttonColor) {
 	}
 	// Else, user is wrong
 	else {
-		console.log("wrong...");
 		userGuess = 0;
 		// If regular mode
 		if(!isStrictMode){
@@ -167,8 +161,6 @@ function resetGame() {
 }
 
 function gameOver() {
-	// Show 'Game Over' Screen
-	//alert('Game Over');
-	console.log(sequenceTimers.length);
-	// Ask user to play again
+	disableButtons();
+	$('#reset-btn').val("New Game?");
 }
