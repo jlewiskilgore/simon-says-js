@@ -1,19 +1,22 @@
 var currGameSequence;
+var gameLength = 5;
 var isStrictMode = 0; // Strict Starts Off
 var numRight;
 var userGuess;
 startGame();
 
 function startGame() {
+	enableButtons();
 	currGameSequence = []; // Clear sequence for the new game
 	numRight = 0;
 	userGuess = 0;
-	currGameSequence = generateRandomSequence(20);
+	currGameSequence = generateRandomSequence(gameLength);
 
 	console.log(currGameSequence); // for DEBUG
 
 	// Play the initial sequence for the player starting at 0
 	playSequence(0, 1);
+	$('#reset-btn').val("Reset Game");
 }
 
 function toggleStrictMode() {
@@ -83,7 +86,13 @@ function getUserChoice(buttonNum, buttonColor) {
 	if(buttonNum == currGameSequence[userGuess]) {
 		console.log("right!");
 		userGuess++;
-		if(userGuess == numRight+1) {
+		if(userGuess == gameLength) {
+			$('#reset-btn').val("New Game?");
+			console.log("YOU WIN!!!!!");
+			gameStatus.val("Congratulations! YOU WIN!!!");
+			disableButtons();
+		}
+		else if(userGuess == numRight+1) {
 			console.log("All Right!! Get next sequence!");
 			gameStatus.val("CORRECT!");
 			numRight++;

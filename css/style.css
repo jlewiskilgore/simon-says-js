@@ -1,6 +1,10 @@
 body {
-   background-color: white;
+   background-color: #F6CED8;
    color: black;
+}
+
+h1 {
+   font-family: fantasy;
 }
 
 input {
@@ -17,17 +21,21 @@ input {
 }
 
 #game-status-display {
+   font-family: fantasy;
+   font-size: 18pt;
    height: 50px;
-   width: 210px;
-   margin-top: 10px;
+   width: 400px;
+   margin-top: 50px;
    margin-bottom: 10px;
    text-align: center;
    border: none;
+   background: #F6CED8;
 }
 
 #green-btn {
    background-color: green;
    opacity: 0.5;
+   border-radius: 25px;
 }
 
 #green-btn:active {
@@ -37,6 +45,7 @@ input {
 #red-btn {
    background-color: red;
    opacity: 0.5;
+   border-radius: 25px;
 }
 
 #red-btn:active {
@@ -46,6 +55,7 @@ input {
 #yellow-btn {
    background-color: yellow;
    opacity: 0.5;
+   border-radius: 25px;
 }
 
 #yellow-btn:active {
@@ -55,6 +65,7 @@ input {
 #blue-btn {
    background-color: blue;
    opacity: 0.5;
+   border-radius: 25px;
 }
 
 #blue-btn:active {
@@ -79,7 +90,7 @@ input {
    bottom:0px;
    height:80px;
    width:100%;
-   background: white;
+   background: #F6CED8;
    text-align: center;
    color: black;
    padding: 15px 5px 15px 10px;
